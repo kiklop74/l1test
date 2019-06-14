@@ -2,19 +2,10 @@ sudo: true
 
 language: php
 php:
-  - 7.1.9
-
-cache:
-  directories:
-    - $HOME/.composer/cache
-    - $HOME/.npm
-
-services:
-  - mysql
+  - 7.1.0
 
 before_install:
-  - nvm install 8.9
-  - nvm use 8.9
+  - nvm use v8.9
 
 script:
-  - vendor/bin/phpunit --colors
+  - php -- vendor/bin/phpunit --colors
