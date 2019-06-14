@@ -19,7 +19,8 @@ before_install:
   - composer install
   - npm install
   - cp -uv .env.example .env
+  - php artisan key:generate
 
 script:
-  - vendor/bin/phpcs --extensions='php' -n --ignore='bootstrap,vendor,node_modules,storage,public,database,_ide_helper.php' --standard='PSR2' .
+  - vendor/bin/phpcs --extensions='php' --ignore='*.blade.php,bootstrap,vendor,node_modules,storage,public,database,_ide_helper.php' --standard='PSR2' .
   - vendor/bin/phpunit --colors
