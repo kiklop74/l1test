@@ -16,7 +16,7 @@ addons:
 
 before_install:
   - nvm use v8.9
-  - composer install
+  - composer -n --no-progress install
   - npm install
   - cp -uv .env.example .env
   - php artisan key:generate
