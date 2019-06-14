@@ -2,10 +2,18 @@ sudo: true
 
 language: php
 php:
-  - 7.1.0
+  - 7.1.11
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+    - $HOME/.npm
 
 before_install:
   - nvm use v8.9
+  - composer install
+  - npm install
 
 script:
-  - php -- vendor/bin/phpunit --colors
+  - php -- "$(TRAVIS_BUILD_DIR)/vendor/bin/phpcs" --standard='PSR2' "$(TRAVIS_BUILD_DIR)"
+  - php -- vendor/bin/phpunit --colors "$(TRAVIS_BUILD_DIR)"
