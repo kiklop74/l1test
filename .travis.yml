@@ -12,8 +12,11 @@ cache:
 before_install:
   - nvm use v8.9
   - composer install
+  - apt-get -q update ; apt-get -yq install nasm
   - npm install
 
 script:
-  - php -- "$(TRAVIS_BUILD_DIR)/vendor/bin/phpcs" --standard='PSR2' "$(TRAVIS_BUILD_DIR)"
-  - php -- vendor/bin/phpunit --colors "$(TRAVIS_BUILD_DIR)"
+  - vendor/bin/phpcs --standard='PSR2' .
+  - vendor/bin/phpunit --colors
+#  - php -- ${TRAVIS_BUILD_DIR}/vendor/bin/phpcs --standard='PSR2' ${TRAVIS_BUILD_DIR}
+#  - php -- vendor/bin/phpunit --colors "$(TRAVIS_BUILD_DIR)"
