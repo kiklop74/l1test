@@ -22,5 +22,6 @@ before_install:
   - php artisan key:generate
 
 script:
+  - npm run dev
   - vendor/bin/phpcs --extensions='php' --ignore='*.blade.php,bootstrap,vendor,node_modules,storage,public,database,_ide_helper.php' --standard='PSR2' .
   - vendor/bin/phpunit --colors
