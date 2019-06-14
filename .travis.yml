@@ -9,14 +9,16 @@ cache:
     - $HOME/.composer/cache
     - $HOME/.npm
 
+addons:
+  apt:
+    packages:
+      - nasm
+
 before_install:
   - nvm use v8.9
   - composer install
-  - sudo apt-get -q update ; sudo apt-get -yq install nasm
   - npm install
 
 script:
-  - vendor/bin/phpcs --standard='PSR2' .
+  - vendor/bin/phpcs --extensions='php' --ignore='bootstrap,vendor,node_modules,storage,public,database,_ide_helper.php' --standard='PSR2' .
   - vendor/bin/phpunit --colors
-#  - php -- ${TRAVIS_BUILD_DIR}/vendor/bin/phpcs --standard='PSR2' ${TRAVIS_BUILD_DIR}
-#  - php -- vendor/bin/phpunit --colors "$(TRAVIS_BUILD_DIR)"
