@@ -22,12 +22,9 @@ before_install:
   - npm install
   - cp -uv .env.example .env
   - php artisan key:generate
-  - php artisan ide-helper:generate
 
 script:
   - php security-checker.phar security:check composer.lock
   - npm run dev
   - vendor/bin/phpcs --extensions='php' --ignore='*.blade.php,bootstrap,vendor,node_modules,storage,public,database,_ide_helper.php' --standard='PSR2' .
   - vendor/bin/phpunit --colors
-# This is disabled for now
-#  - vendor/bin/psalm
