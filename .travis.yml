@@ -17,6 +17,8 @@ addons:
 before_install:
   - nvm install v8.9
   - nvm use v8.9
+  - curl -sS -o /usr/local/bin/security-checker https://get.sensiolabs.org/security-checker.phar
+  - chmod +x /usr/local/bin/security-checker
   - composer -n --no-progress install
   - npm install
   - cp -uv .env.example .env
@@ -24,6 +26,7 @@ before_install:
   - php artisan ide-helper:generate
 
 script:
+  - security-check security:check composer.lock
   - npm run dev
   - vendor/bin/phpcs --extensions='php' --ignore='*.blade.php,bootstrap,vendor,node_modules,storage,public,database,_ide_helper.php' --standard='PSR2' .
   - vendor/bin/phpunit --colors

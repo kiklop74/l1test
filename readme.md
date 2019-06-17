@@ -1,7 +1,7 @@
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/kiklop74/l1test.svg?branch=master" alt="Build Status"></a>
+<a href="https://travis-ci.org/kiklop74/l1test"><img src="https://travis-ci.org/kiklop74/l1test.svg?branch=master" alt="Build Status"></a>
 </p>
 
 ## About Laravel
