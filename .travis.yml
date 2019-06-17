@@ -18,7 +18,6 @@ before_install:
   - nvm install v8.9
   - nvm use v8.9
   - curl -sS -o security-checker.phar https://get.sensiolabs.org/security-checker.phar
-  - chmod +x /usr/local/bin/security-checker
   - composer -n --no-progress install
   - npm install
   - cp -uv .env.example .env
